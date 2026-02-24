@@ -24,7 +24,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 struct popup_data {
 	struct client		 *c;
@@ -907,7 +907,7 @@ popup_editor(struct client *c, const char *buf, size_t len,
 	int			 fd;
 	FILE			*f;
 	char			*cmd;
-	char			 path[] = _PATH_TMP "tmux.XXXXXXXX";
+	char			 path[] = _PATH_TMP "miauh.XXXXXXXX";
 	const char		*editor;
 	u_int			 px, py, sx, sy;
 

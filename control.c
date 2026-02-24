@@ -24,7 +24,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Block of data to output. Each client has one "all" queue of blocks and

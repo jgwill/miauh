@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static struct screen	*window_customize_init(struct window_mode_entry *,
 			     struct cmd_find_state *, struct args *);

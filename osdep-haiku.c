@@ -21,7 +21,7 @@
 #include <unistd.h>
 #include <kernel/OS.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 char *
 osdep_get_name(int fd, __unused char *tty)

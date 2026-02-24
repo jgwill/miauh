@@ -24,7 +24,7 @@
 #include <unistd.h>
 #include <time.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 struct sessions		sessions;
 u_int			next_session_id;

@@ -31,7 +31,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Each window is attached to a number of panes, each of which is a pty. This

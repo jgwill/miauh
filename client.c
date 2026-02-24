@@ -30,7 +30,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static struct tmuxproc	*client_proc;
 static struct tmuxpeer	*client_peer;

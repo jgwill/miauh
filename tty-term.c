@@ -28,7 +28,7 @@
 #include <string.h>
 #include <term.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static char	*tty_term_strip(const char *);
 
@@ -494,7 +494,7 @@ tty_term_apply_overrides(struct tty_term *term)
 	 * rather than $COLUMNS (the cursor can never be beyond $COLUMNS - 1).
 	 *
 	 * Terminals without xenl (eat newline glitch) ignore a newline beyond
-	 * the right edge of the terminal, but tmux doesn't care about this -
+	 * the right edge of the terminal, but miauh doesn't care about this -
 	 * it always uses absolute only moves the cursor with a newline when
 	 * also sending a linefeed.
 	 *
@@ -634,7 +634,7 @@ tty_term_create(struct tty *tty, char *name, char **caps, u_int ncaps,
 	 * attributes requests are sent to get more information.
 	 *
 	 * This is a bit of a hack but there aren't that many alternatives.
-	 * Worst case tmux will just fall back to using whatever terminfo(5)
+	 * Worst case miauh will just fall back to using whatever terminfo(5)
 	 * says without trying to correct anything that is missing.
 	 *
 	 * Also add few features that VT100-like terminals should either

@@ -31,7 +31,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 struct options	*global_options;	/* server options */
 struct options	*global_s_options;	/* session options */
@@ -196,7 +196,7 @@ make_label(const char *label, char **cause)
 		label = "default";
 	uid = getuid();
 
-	expand_paths(TMUX_SOCK, &paths, &n, 0);
+	expand_paths(MIAUH_SOCK, &paths, &n, 0);
 	if (n == 0) {
 		xasprintf(cause, "no suitable socket path");
 		return (NULL);
@@ -206,7 +206,7 @@ make_label(const char *label, char **cause)
 		free(paths[i]);
 	free(paths);
 
-	xasprintf(&base, "%s/tmux-%ld", path, (long)uid);
+	xasprintf(&base, "%s/miauh-%ld", path, (long)uid);
 	free(path);
 	if (mkdir(base, S_IRWXU) != 0 && errno != EEXIST) {
 		xasprintf(cause, "couldn't create directory %s (%s)", base,
@@ -222,7 +222,7 @@ make_label(const char *label, char **cause)
 		xasprintf(cause, "%s is not a directory", base);
 		goto fail;
 	}
-	if (sb.st_uid != uid || (sb.st_mode & TMUX_SOCK_PERM) != 0) {
+	if (sb.st_uid != uid || (sb.st_mode & MIAUH_SOCK_PERM) != 0) {
 		xasprintf(cause, "directory %s has unsafe permissions", base);
 		goto fail;
 	}
@@ -343,7 +343,7 @@ find_home(void)
 const char *
 getversion(void)
 {
-	return (TMUX_VERSION);
+	return (MIAUH_VERSION);
 }
 
 int
@@ -377,7 +377,7 @@ main(int argc, char **argv)
 		environ_put(global_environ, *var, 0);
 	if ((cwd = find_cwd()) != NULL)
 		environ_set(global_environ, "PWD", 0, "%s", cwd);
-	expand_paths(TMUX_CONF, &cfg_files, &cfg_nfiles, 1);
+	expand_paths(MIAUH_CONF, &cfg_files, &cfg_nfiles, 1);
 
 	while ((opt = getopt(argc, argv, "2c:CDdf:hlL:NqS:T:uUvV")) != -1) {
 		switch (opt) {
@@ -411,7 +411,7 @@ main(int argc, char **argv)
 		case 'h':
 			usage(0);
 		case 'V':
-			printf("tmux %s\n", getversion());
+			printf("miauh %s\n", getversion());
 			exit(0);
 		case 'l':
 			flags |= CLIENT_LOGIN;
@@ -457,13 +457,13 @@ main(int argc, char **argv)
 		err(1, "pledge");
 
 	/*
-	 * tmux is a UTF-8 terminal, so if TMUX is set, assume UTF-8.
+	 * miauh is a UTF-8 terminal, so if MIAUH is set, assume UTF-8.
 	 * Otherwise, if the user has set LC_ALL, LC_CTYPE or LANG to contain
 	 * UTF-8, it is a safe assumption that either they are using a UTF-8
 	 * terminal, or if not they know that output from UTF-8-capable
 	 * programs may be wrong.
 	 */
-	if (getenv("TMUX") != NULL)
+	if (getenv("MIAUH") != NULL)
 		flags |= CLIENT_UTF8;
 	else {
 		s = getenv("LC_ALL");
@@ -512,11 +512,11 @@ main(int argc, char **argv)
 
 	/*
 	 * If socket is specified on the command-line with -S or -L, it is
-	 * used. Otherwise, $TMUX is checked and if that fails "default" is
+	 * used. Otherwise, $MIAUH is checked and if that fails "default" is
 	 * used.
 	 */
 	if (path == NULL && label == NULL) {
-		s = getenv("TMUX");
+		s = getenv("MIAUH");
 		if (s != NULL && *s != '\0' && *s != ',') {
 			path = xstrdup(s);
 			path[strcspn(path, ",")] = '\0';

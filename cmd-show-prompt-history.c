@@ -16,7 +16,7 @@
  * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include "tmux.h"
+#include "miauh.h"
 
 #include <stdlib.h>
 

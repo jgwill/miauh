@@ -25,7 +25,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 char *
 osdep_get_name(__unused int fd, char *tty)
@@ -100,7 +100,7 @@ osdep_event_init(void)
 
 	/*
 	 * On Illumos, evports don't seem to work properly. It is not clear if
-	 * this a problem in libevent, with the way tmux uses file descriptors,
+	 * this a problem in libevent, with the way miauh uses file descriptors,
 	 * or with some types of file descriptor. But using poll instead is
 	 * fine.
 	 */

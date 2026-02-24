@@ -27,7 +27,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Job scheduling. Run queued commands in the background and record their
@@ -85,7 +85,7 @@ job_run(const char *cmd, int argc, char **argv, struct environ *e,
 	struct options	 *oo;
 
 	/*
-	 * Do not set TERM during .tmux.conf (second argument here), it is nice
+	 * Do not set TERM during .miauh.conf (second argument here), it is nice
 	 * to be able to use if-shell to decide on default-terminal based on
 	 * outside TERM.
 	 */

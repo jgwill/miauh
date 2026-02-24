@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Grid data. This is the basic data structure that represents what is shown on

@@ -38,6 +38,6 @@ getprogname(void)
 const char *
 getprogname(void)
 {
-	return ("tmux");
+	return ("miauh");
 }
 #endif

@@ -24,7 +24,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Set up the environment and create a new window and pane or a new pane.
@@ -313,11 +313,11 @@ spawn_pane(struct spawn_context *sc, char **cause)
 	child = environ_for_session(s, 0);
 	if (sc->environ != NULL)
 		environ_copy(sc->environ, child);
-	environ_set(child, "TMUX_PANE", 0, "%%%u", new_wp->id);
+	environ_set(child, "MIAUH_PANE", 0, "%%%u", new_wp->id);
 
 	/*
 	 * Then the PATH environment variable. The session one is replaced from
-	 * the client if there is one because otherwise running "tmux new
+	 * the client if there is one because otherwise running "miauh new
 	 * myprogram" wouldn't work if myprogram isn't in the session's path.
 	 */
 	if (c != NULL && c->session == NULL) { /* only unattached clients */
@@ -423,7 +423,7 @@ spawn_pane(struct spawn_context *sc, char **cause)
 
 	/*
 	 * Update terminal escape characters from the session if available and
-	 * force VERASE to tmux's backspace.
+	 * force VERASE to miauh's backspace.
 	 */
 	if (tcgetattr(STDIN_FILENO, &now) != 0)
 		_exit(1);
@@ -481,7 +481,7 @@ spawn_pane(struct spawn_context *sc, char **cause)
 complete:
 #ifdef HAVE_UTEMPTER
 	if (~new_wp->flags & PANE_EMPTY) {
-		xasprintf(&cp, "tmux(%lu).%%%u", (long)getpid(), new_wp->id);
+		xasprintf(&cp, "miauh(%lu).%%%u", (long)getpid(), new_wp->id);
 		utempter_add_record(new_wp->fd, cp);
 		kill(getpid(), SIGCHLD);
 		free(cp);

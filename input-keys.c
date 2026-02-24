@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * This file is rather misleadingly named, it contains the code which takes a
@@ -750,7 +750,7 @@ input_key_get_mouse(struct screen *s, struct mouse_event *m, u_int x, u_int y,
 	 * and the underlying terminal also sent the event in this format (this
 	 * is because an old style mouse release event cannot be converted into
 	 * the new SGR format, since the released button is unknown). Otherwise
-	 * pretend that tmux doesn't speak this extension, and fall back to the
+	 * pretend that miauh doesn't speak this extension, and fall back to the
 	 * UTF-8 (1005) extension if the application requested, or to the
 	 * legacy format.
 	 */

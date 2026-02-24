@@ -22,7 +22,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Set of paste buffers. Note that paste buffer data is not necessarily a C

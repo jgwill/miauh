@@ -26,7 +26,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static void	server_destroy_session_group(struct session *);
 

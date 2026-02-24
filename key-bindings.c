@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 #define DEFAULT_SESSION_MENU \
 	" 'Next' 'n' {switch-client -n}" \

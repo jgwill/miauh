@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Sources a configuration file.

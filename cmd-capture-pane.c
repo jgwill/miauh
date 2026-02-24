@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Write the entire contents of a pane to a buffer or stdout.

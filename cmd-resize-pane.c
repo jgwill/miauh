@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Increase or decrease pane size.

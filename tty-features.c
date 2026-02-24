@@ -27,7 +27,7 @@
 #include <ncurses.h>
 #endif
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Still hardcoded:

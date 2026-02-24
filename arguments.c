@@ -23,7 +23,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Manipulate command arguments.

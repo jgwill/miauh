@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /* Mask for bits not included in style. */
 #define STYLE_ATTR_MASK (~0)

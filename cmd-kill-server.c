@@ -21,7 +21,7 @@
 #include <signal.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Kill the server and do nothing else.

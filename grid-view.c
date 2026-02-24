@@ -20,7 +20,7 @@
 
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Grid view functions. These work using coordinates relative to the visible

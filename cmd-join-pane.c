@@ -23,7 +23,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Join or move a pane into another (like split/swap/kill).

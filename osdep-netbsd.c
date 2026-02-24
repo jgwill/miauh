@@ -27,7 +27,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 #define is_runnable(p) \
 	((p)->p_stat == LSRUN || (p)->p_stat == SIDL)

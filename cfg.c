@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 struct client		 *cfg_client;
 int			  cfg_finished;

@@ -21,7 +21,7 @@
 
 #include <stdlib.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 #define CONTROL_SHOULD_NOTIFY_CLIENT(c) \
 	((c) != NULL && ((c)->flags & CLIENT_CONTROL))

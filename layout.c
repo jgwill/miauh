@@ -21,7 +21,7 @@
 
 #include <stdlib.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * The window layout is a tree of cells each of which can be one of: a

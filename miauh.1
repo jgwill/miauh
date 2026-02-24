@@ -15,13 +15,13 @@
 .\" OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
 .Dd $Mdocdate$
-.Dt TMUX 1
+.Dt MIAUH 1
 .Os
 .Sh NAME
-.Nm tmux
+.Nm miauh
 .Nd terminal multiplexer
 .Sh SYNOPSIS
-.Nm tmux
+.Nm miauh
 .Bk -words
 .Op Fl 2CDhlNuVv
 .Op Fl c Ar shell-command
@@ -81,7 +81,7 @@ key strokes).
 .Nm
 may be reattached using:
 .Pp
-.Dl $ tmux attach
+.Dl $ miauh attach
 .Pp
 In
 .Nm ,
@@ -138,11 +138,11 @@ Specify an alternative configuration file.
 By default,
 .Nm
 loads the system configuration file from
-.Pa @SYSCONFDIR@/tmux.conf ,
+.Pa @SYSCONFDIR@/miauh.conf ,
 if present, then looks for a user configuration file at
-.Pa \[ti]/.tmux.conf
+.Pa \[ti]/.miauh.conf
 or
-.Pa $XDG_CONFIG_HOME/tmux/tmux.conf .
+.Pa $XDG_CONFIG_HOME/miauh/miauh.conf .
 .Pp
 The configuration file is a set of
 .Nm
@@ -161,7 +161,7 @@ Print usage information and exit.
 .It Fl L Ar socket-name
 .Nm
 stores the server socket in a directory under
-.Ev TMUX_TMPDIR
+.Ev MIAUH_TMPDIR
 or
 .Pa /tmp
 if it is unset.
@@ -174,13 +174,13 @@ servers to be run.
 Unlike
 .Fl S
 a full path is not necessary: the sockets are all created in a directory
-.Pa tmux-UID
+.Pa miauh-UID
 under the directory given by
-.Ev TMUX_TMPDIR
+.Ev MIAUH_TMPDIR
 or in
 .Pa /tmp .
 The
-.Pa tmux-UID
+.Pa miauh-UID
 directory is created by
 .Nm
 and must not be world readable, writable or executable.
@@ -194,7 +194,7 @@ directories are missing).
 .It Fl l
 Behave as a login shell.
 This flag currently has no effect and is for compatibility with other shells
-when using tmux as a login shell.
+when using miauh as a login shell.
 .It Fl N
 Do not start the server even if the command would normally do so (for example
 .Ic new-session
@@ -231,16 +231,16 @@ version.
 .It Fl v
 Request verbose logging.
 Log messages will be saved into
-.Pa tmux-client-PID.log
+.Pa miauh-client-PID.log
 and
-.Pa tmux-server-PID.log
+.Pa miauh-server-PID.log
 files in the current directory, where
 .Em PID
 is the PID of the server or client process.
 If
 .Fl v
 is specified twice, an additional
-.Pa tmux-out-PID.log
+.Pa miauh-out-PID.log
 file is generated with a copy of everything
 .Nm
 writes to the terminal.
@@ -413,10 +413,10 @@ the command prompt.
 For example, the same
 .Ic set-option
 command run from the shell prompt, from
-.Pa \[ti]/.tmux.conf
+.Pa \[ti]/.miauh.conf
 and bound to a key may look like:
 .Bd -literal -offset indent
-$ tmux set-option -g status-style bg=cyan
+$ miauh set-option -g status-style bg=cyan
 
 set-option -g status-style bg=cyan
 
@@ -466,7 +466,7 @@ To execute commands, each client has a
 .Ql command queue .
 A global command queue not attached to any client is used on startup
 for configuration files like
-.Pa \[ti]/.tmux.conf .
+.Pa \[ti]/.miauh.conf .
 Parsed commands added to the queue are executed in order.
 Some commands, like
 .Ic if-shell
@@ -533,15 +533,15 @@ It is recommended that a semicolon used as a command separator should be
 written as an individual token, for example from
 .Xr sh 1 :
 .Bd -literal -offset indent
-$ tmux neww \\; splitw
+$ miauh neww \\; splitw
 .Ed
 .Pp
 Or:
 .Bd -literal -offset indent
-$ tmux neww \[aq];\[aq] splitw
+$ miauh neww \[aq];\[aq] splitw
 .Ed
 .Pp
-Or from the tmux command prompt:
+Or from the miauh command prompt:
 .Bd -literal -offset indent
 neww ; splitw
 .Ed
@@ -551,15 +551,15 @@ for example in these
 .Xr sh 1
 commands:
 .Bd -literal -offset indent
-$ tmux neww\e; splitw
+$ miauh neww\e; splitw
 .Ed
 .Pp
 Or:
 .Bd -literal -offset indent
-$ tmux \[aq]neww;\[aq] splitw
+$ miauh \[aq]neww;\[aq] splitw
 .Ed
 .Pp
-As in these examples, when running tmux from the shell extra care must be taken
+As in these examples, when running miauh from the shell extra care must be taken
 to properly quote semicolons:
 .Bl -enum -offset Ds
 .It
@@ -578,15 +578,15 @@ a second time for
 .Nm ;
 for example:
 .Bd -literal -offset indent
-$ tmux neww \[aq]foo\e;\[aq] bar
-$ tmux neww foo\e\e\e; bar
+$ miauh neww \[aq]foo\e;\[aq] bar
+$ miauh neww foo\e\e\e; bar
 .Ed
 .It
 Semicolons that are not individual tokens or trailing another token should only
 be escaped once according to shell conventions; for example:
 .Bd -literal -offset indent
-$ tmux neww \[aq]foo-;-bar\[aq]
-$ tmux neww foo-\e;-bar
+$ miauh neww \[aq]foo-;-bar\[aq]
+$ miauh neww foo-\e;-bar
 .Ed
 .El
 .Pp
@@ -674,7 +674,7 @@ for example:
 .Ed
 .Pp
 Hidden variables are not passed to the environment of processes created
-by tmux.
+by miauh.
 See the
 .Sx GLOBAL AND SESSION ENVIRONMENT
 section.
@@ -919,7 +919,7 @@ in the
 .Nm
 server.
 The pane ID is passed to the child process of the pane in the
-.Ev TMUX_PANE
+.Ev MIAUH_PANE
 environment variable.
 IDs may be displayed using the
 .Ql session_id ,
@@ -942,12 +942,12 @@ arguments are
 commands.
 This may be a single argument passed to the shell, for example:
 .Bd -literal -offset indent
-new-window \[aq]vi \[ti]/.tmux.conf\[aq]
+new-window \[aq]vi \[ti]/.miauh.conf\[aq]
 .Ed
 .Pp
 Will run:
 .Bd -literal -offset indent
-/bin/sh -c \[aq]vi \[ti]/.tmux.conf\[aq]
+/bin/sh -c \[aq]vi \[ti]/.miauh.conf\[aq]
 .Ed
 .Pp
 Additionally, the
@@ -964,7 +964,7 @@ to be given as multiple arguments and executed directly (without
 This can avoid issues with shell quoting.
 For example:
 .Bd -literal -offset indent
-$ tmux new-window vi \[ti]/.tmux.conf
+$ miauh new-window vi \[ti]/.miauh.conf
 .Ed
 .Pp
 Will run
@@ -981,7 +981,7 @@ bind-key F1 set-option status off
 .Ed
 .Pp
 Or passed as a single string argument in
-.Pa .tmux.conf ,
+.Pa .miauh.conf ,
 for example:
 .Bd -literal -offset indent
 bind-key F1 { set-option status off }
@@ -999,18 +999,18 @@ set-option -wt:0 monitor-activity on
 
 new-window ; split-window -d
 
-bind-key R source-file \[ti]/.tmux.conf \e; \e
+bind-key R source-file \[ti]/.miauh.conf \e; \e
 	display-message "source-file done"
 .Ed
 .Pp
 Or from
 .Xr sh 1 :
 .Bd -literal -offset indent
-$ tmux kill-window -t :1
+$ miauh kill-window -t :1
 
-$ tmux new-window \e; split-window -d
+$ miauh new-window \e; split-window -d
 
-$ tmux new-session -d \[aq]vi \[ti]/.tmux.conf\[aq] \e; split-window -d \e; attach
+$ miauh new-session -d \[aq]vi \[ti]/.miauh.conf\[aq] \e; split-window -d \e; attach
 .Ed
 .Sh CLIENTS AND SESSIONS
 The
@@ -1628,12 +1628,12 @@ Note that as by default the
 .Nm
 server will exit with no sessions, this is only useful if a session is created
 in
-.Pa \[ti]/.tmux.conf ,
+.Pa \[ti]/.miauh.conf ,
 .Ic exit-empty
 is turned off, or another command is run as part of the same command sequence.
 For example:
 .Bd -literal -offset indent
-$ tmux start \\; show -g
+$ miauh start \\; show -g
 .Ed
 .Tg suspendc
 .It Xo Ic suspend-client
@@ -2413,7 +2413,7 @@ The
 .Fl o
 flag jumps to the beginning of the command output instead of the shell prompt.
 Finding the beginning of command output requires the shell to emit an escape
-sequence (\e033]133;C\e033\e\e) to tell tmux where the output begins.
+sequence (\e033]133;C\e033\e\e) to tell miauh where the output begins.
 If the shell does not send these escape sequences, these commands do nothing.
 .Pp
 Copy commands may take an optional buffer prefix argument which is used
@@ -2570,10 +2570,10 @@ command displays the layout of each window in a form suitable for use with
 .Ic select-layout .
 For example:
 .Bd -literal -offset indent
-$ tmux list-windows
+$ miauh list-windows
 0: ksh [159x48]
     layout: bb62,159x48,0,0{79x48,0,0,79x48,80,0}
-$ tmux select-layout \[aq]bb62,159x48,0,0{79x48,0,0,79x48,80,0}\[aq]
+$ miauh select-layout \[aq]bb62,159x48,0,0{79x48,0,0,79x48,80,0}\[aq]
 .Ed
 .Pp
 .Nm
@@ -3232,7 +3232,7 @@ The
 environment variable must be set to
 .Ql screen
 or
-.Ql tmux
+.Ql miauh
 for all programs running
 .Em inside
 .Nm .
@@ -3627,7 +3627,7 @@ is not specified or empty)
 will create an empty pane and forward any output from stdin to it.
 For example:
 .Bd -literal -offset indent
-$ make 2>&1|tmux splitw -dI &
+$ make 2>&1|miauh splitw -dI &
 .Ed
 .Pp
 All other options have the same meaning as for the
@@ -4042,8 +4042,8 @@ User options may have any name, so long as they are prefixed with
 and be set to any string.
 For example:
 .Bd -literal -offset indent
-$ tmux set -wq @foo "abc123"
-$ tmux show -wv @foo
+$ miauh set -wq @foo "abc123"
+$ miauh show -wv @foo
 abc123
 .Ed
 .Pp
@@ -4215,7 +4215,7 @@ Give the command to pipe to if the
 .Ic copy-pipe
 copy mode command is used without arguments.
 .It Ic default-client-command Ar command
-Set the default command to run when tmux is called without a command.
+Set the default command to run when miauh is called without a command.
 The default is
 .Ic new-session .
 .It Ic default-terminal Ar terminal
@@ -4229,7 +4229,7 @@ to work correctly, this
 .Em must
 be set to
 .Ql screen ,
-.Ql tmux
+.Ql miauh
 or a derivative of them.
 .It Ic escape-time Ar time
 Set the time in milliseconds for which
@@ -4405,7 +4405,7 @@ entry in use.
 .Pp
 .Nm
 can detect features for a few common terminals; this option can be used to
-easily tell tmux about features supported by terminals it cannot detect.
+easily tell miauh about features supported by terminals it cannot detect.
 The
 .Ic terminal-overrides
 option allows individual
@@ -5446,7 +5446,7 @@ Available pane options are:
 .Xc
 Allow programs in the pane to bypass
 .Nm
-using a terminal escape sequence (\eePtmux;...\ee\e\e).
+using a terminal escape sequence (\eePmiauh;...\ee\e\e).
 If set to
 .Ic on ,
 passthrough sequences will be allowed only if the pane is visible.
@@ -5596,7 +5596,7 @@ If a command fails, the
 hook will be fired.
 For example, this could be used to write to a log file:
 .Bd -literal -offset indent
-set-hook -g command-error "run-shell \\"echo 'a tmux command failed' >>/tmp/log\\""
+set-hook -g command-error "run-shell \\"echo 'a miauh command failed' >>/tmp/log\\""
 .Ed
 .Pp
 All the notifications listed in the
@@ -6639,7 +6639,7 @@ session option may be used to update the session environment from the client
 when a new session is created or an old reattached.
 .Nm
 also initialises the
-.Ev TMUX
+.Ev MIAUH
 variable with some internal information to allow commands to be executed
 from inside, and the
 .Ev TERM
@@ -6648,7 +6648,7 @@ variable with the correct terminal setting of
 .Pp
 Variables in both session and global environments may be marked as hidden.
 Hidden variables are not passed into the environment of new processes and
-instead can only be used by tmux itself (for example in formats, see the
+instead can only be used by miauh itself (for example in formats, see the
 .Sx FORMATS
 section).
 .Pp
@@ -7744,7 +7744,7 @@ option above and the
 .Xr xterm 1
 man page.
 .It Em \&XT
-This is an existing extension capability that tmux uses to mean that the
+This is an existing extension capability that miauh uses to mean that the
 terminal supports the
 .Xr xterm 1
 title set sequences and to automatically set some of the capabilities above.
@@ -7824,7 +7824,7 @@ sent when the
 .Ar pause-after
 flag is set.
 .Ar age
-is the time in milliseconds for which tmux had buffered the output before it
+is the time in milliseconds for which miauh had buffered the output before it
 was sent.
 Any subsequent arguments up until a single
 .Ql \&:
@@ -8004,7 +8004,7 @@ The absolute path to the default shell for new windows.
 See the
 .Ic default-shell
 option for details.
-.It Ev TMUX_TMPDIR
+.It Ev MIAUH_TMPDIR
 The parent directory of the directory containing the server sockets.
 See the
 .Fl L
@@ -8020,14 +8020,14 @@ and
 options.
 .El
 .Sh FILES
-.Bl -tag -width "@SYSCONFDIR@/tmux.confXXX" -compact
-.It Pa \[ti]/.tmux.conf
-.It Pa $XDG_CONFIG_HOME/tmux/tmux.conf
-.It Pa \[ti]/.config/tmux/tmux.conf
+.Bl -tag -width "@SYSCONFDIR@/miauh.confXXX" -compact
+.It Pa \[ti]/.miauh.conf
+.It Pa $XDG_CONFIG_HOME/miauh/miauh.conf
+.It Pa \[ti]/.config/miauh/miauh.conf
 Default
 .Nm
 configuration file.
-.It Pa @SYSCONFDIR@/tmux.conf
+.It Pa @SYSCONFDIR@/miauh.conf
 System-wide configuration file.
 .El
 .Sh EXAMPLES
@@ -8036,18 +8036,18 @@ To create a new
 session running
 .Xr vi 1 :
 .Pp
-.Dl $ tmux new-session vi
+.Dl $ miauh new-session vi
 .Pp
 Most commands have a shorter form, known as an alias.
 For new-session, this is
 .Ic new :
 .Pp
-.Dl $ tmux new vi
+.Dl $ miauh new vi
 .Pp
 Alternatively, the shortest unambiguous form of a command is accepted.
 If there are several options, they are listed:
 .Bd -literal -offset indent
-$ tmux n
+$ miauh n
 ambiguous command: n, could be: new-session, new-window, next-window
 .Ed
 .Pp
@@ -8077,7 +8077,7 @@ A session may be detached using
 .Xr ssh 1
 disconnection) and reattached with:
 .Pp
-.Dl $ tmux attach-session
+.Dl $ miauh attach-session
 .Pp
 Typing
 .Ql C-b \&?
@@ -8089,7 +8089,7 @@ to exit from it.
 Commands to be run when the
 .Nm
 server is started may be placed in the
-.Pa \[ti]/.tmux.conf
+.Pa \[ti]/.miauh.conf
 configuration file.
 Common examples include:
 .Pp

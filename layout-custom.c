@@ -21,7 +21,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static struct layout_cell	*layout_find_bottomright(struct layout_cell *);
 static u_short			 layout_checksum(const char *);
@@ -201,7 +201,7 @@ layout_parse(struct window *w, const char *layout, char **cause)
 	}
 
 	/*
-	 * It appears older versions of tmux were able to generate layouts with
+	 * It appears older versions of miauh were able to generate layouts with
 	 * an incorrect top cell size - if it is larger than the top child then
 	 * correct that (if this is still wrong the check code will catch it).
 	 */

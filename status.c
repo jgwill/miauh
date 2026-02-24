@@ -27,7 +27,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static void	 status_message_callback(int, short, void *);
 static void	 status_timer_callback(int, short, void *);

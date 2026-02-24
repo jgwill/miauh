@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Option handling; each option has a name, type and value and is stored in

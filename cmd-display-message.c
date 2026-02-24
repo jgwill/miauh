@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Displays a message in the status line.

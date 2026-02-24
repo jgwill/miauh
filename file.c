@@ -25,7 +25,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * IPC file handling. Both client and server use the same data structures

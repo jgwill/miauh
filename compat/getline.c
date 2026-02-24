@@ -41,7 +41,7 @@
 #include <errno.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static ssize_t
 getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)

@@ -21,7 +21,7 @@
 #include <regex.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static void
 regsub_copy(char **buf, ssize_t *len, const char *text, size_t start, size_t end)

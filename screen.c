@@ -22,7 +22,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /* Selected area in screen. */
 struct screen_sel {

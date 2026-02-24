@@ -25,7 +25,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Controls access to session.

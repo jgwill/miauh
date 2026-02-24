@@ -31,7 +31,7 @@
 #include <ncurses.h>
 #endif
 
-#include "tmux.h"
+#include "miauh.h"
 
 struct tmuxproc {
 	const char	 *name;

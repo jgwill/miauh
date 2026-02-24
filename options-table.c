@@ -20,7 +20,7 @@
 
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * This file has a tables with all the server, session and window
@@ -342,13 +342,13 @@ const struct options_table_entry options_table[] = {
 	  .type = OPTIONS_TABLE_COMMAND,
 	  .scope = OPTIONS_TABLE_SERVER,
 	  .default_str = "new-session",
-	  .text = "Default command to run when tmux is run without a command."
+	  .text = "Default command to run when miauh is run without a command."
 	},
 
 	{ .name = "default-terminal",
 	  .type = OPTIONS_TABLE_STRING,
 	  .scope = OPTIONS_TABLE_SERVER,
-	  .default_str = TMUX_TERM,
+	  .default_str = MIAUH_TERM,
 	  .text = "Default for the 'TERM' environment variable."
 	},
 
@@ -716,7 +716,7 @@ const struct options_table_entry options_table[] = {
 	{ .name = "lock-command",
 	  .type = OPTIONS_TABLE_STRING,
 	  .scope = OPTIONS_TABLE_SESSION,
-	  .default_str = TMUX_LOCK_CMD,
+	  .default_str = MIAUH_LOCK_CMD,
 	  .text = "Shell command to run to lock a client."
 	},
 
@@ -1070,7 +1070,7 @@ const struct options_table_entry options_table[] = {
 	  .choices = options_table_allow_passthrough_list,
 	  .default_num = 0,
 	  .text = "Whether applications are allowed to use the escape sequence "
-		  "to bypass tmux. Can be 'off' (disallowed), 'on' (allowed "
+		  "to bypass miauh. Can be 'off' (disallowed), 'on' (allowed "
 		  "if the pane is visible), or 'all' (allowed even if the pane "
 		  "is invisible)."
 	},
@@ -1109,7 +1109,7 @@ const struct options_table_entry options_table[] = {
 	{ .name = "automatic-rename-format",
 	  .type = OPTIONS_TABLE_STRING,
 	  .scope = OPTIONS_TABLE_WINDOW,
-	  .default_str = "#{?pane_in_mode,[tmux],#{pane_current_command}}"
+	  .default_str = "#{?pane_in_mode,[miauh],#{pane_current_command}}"
 			 "#{?pane_dead,[dead],}",
 	  .text = "Format used to automatically rename windows."
 	},

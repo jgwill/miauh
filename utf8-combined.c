@@ -22,7 +22,7 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 enum hanguljamo_subclass {
 	HANGULJAMO_SUBCLASS_NOT_HANGULJAMO,

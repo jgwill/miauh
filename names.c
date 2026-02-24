@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static void	 name_time_callback(int, short, void *);
 static int	 name_time_expired(struct window *, struct timeval *);

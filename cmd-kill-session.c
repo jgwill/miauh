@@ -18,7 +18,7 @@
 
 #include <sys/types.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Destroy session, detaching all clients attached to it and destroying any

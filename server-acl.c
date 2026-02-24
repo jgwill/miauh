@@ -27,7 +27,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 struct server_acl_user {
 	uid_t				uid;

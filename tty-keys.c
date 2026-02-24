@@ -29,7 +29,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Handle keys input from the outside terminal. tty_default_*_keys[] are a base
@@ -1276,7 +1276,7 @@ tty_keys_mouse(struct tty *tty, const char *buf, size_t len, size_t *size,
 		 * Some terminals (like PuTTY 0.63) mistakenly send
 		 * button-release events for scroll-wheel button-press event.
 		 * Discard it before it reaches any program running inside
-		 * tmux.
+		 * miauh.
 		 */
 		if (sgr_type == 'm' && MOUSE_WHEEL(sgr_b))
 		    return (-2);

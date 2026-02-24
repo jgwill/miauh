@@ -24,7 +24,7 @@
 #include <string.h>
 #include <math.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static int
 colour_dist_sq(int R, int G, int B, int r, int g, int b)

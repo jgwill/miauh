@@ -1,14 +1,14 @@
-Welcome to tmux!
+Welcome to miauh!
 
-tmux is a terminal multiplexer: it enables a number of terminals to be created,
-accessed, and controlled from a single screen. tmux may be detached from a
+miauh is a terminal multiplexer: it enables a number of terminals to be created,
+accessed, and controlled from a single screen. miauh may be detached from a
 screen and continue running in the background, then later reattached.
 
 This release runs on OpenBSD, FreeBSD, NetBSD, Linux, macOS and Solaris.
 
 * Dependencies
 
-tmux depends on libevent 2.x, available from:
+miauh depends on libevent 2.x, available from:
 
 	https://github.com/libevent/libevent/releases/latest
 
@@ -16,24 +16,24 @@ It also depends on ncurses, available from:
 
 	https://invisible-mirror.net/archives/ncurses/
 
-To build tmux, a C compiler (for example gcc or clang), make, pkg-config and a
+To build miauh, a C compiler (for example gcc or clang), make, pkg-config and a
 suitable yacc (yacc or bison) are needed.
 
 * Installation
 
-To build and install tmux from a release tarball, use:
+To build and install miauh from a release tarball, use:
 
 	$ ./configure && make
 	$ sudo make install
 
-tmux can use the utempter library to update utmp(5), if it is installed - run
+miauh can use the utempter library to update utmp(5), if it is installed - run
 configure with --enable-utempter to enable this.
 
 To get and build the latest from version control - note that this requires
 autoconf, automake and pkg-config:
 
-	$ git clone https://github.com/tmux/tmux.git
-	$ cd tmux
+	$ git clone https://github.com/tmux/miauh.git
+	$ cd miauh
 	$ sh autogen.sh
 	$ ./configure && make
 	$ sudo make install
@@ -49,18 +49,18 @@ Or open a GitHub issue or pull request.
 
 * Documentation
 
-For documentation on using tmux, see the tmux.1 manpage. View it from the
+For documentation on using miauh, see the miauh.1 manpage. View it from the
 source tree with:
 
-	$ nroff -mdoc tmux.1|less
+	$ nroff -mdoc miauh.1|less
 
-A small example configuration is in example_tmux.conf.
+A small example configuration is in example_miauh.conf.
 
 Other documentation is available in the wiki:
 
 	https://github.com/tmux/tmux/wiki
 
-Also see the tmux FAQ at:
+Also see the miauh FAQ at:
 
 	https://github.com/tmux/tmux/wiki/FAQ
 
@@ -68,7 +68,7 @@ A bash(1) completion file is at:
 
 	https://github.com/scop/bash-completion/blob/main/completions/tmux
 
-For debugging, run tmux with -v and -vv to generate server and client log files
+For debugging, run miauh with -v and -vv to generate server and client log files
 in the current directory.
 
 * Support

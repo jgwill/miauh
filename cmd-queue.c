@@ -25,7 +25,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /* Command queue flags. */
 #define CMDQ_FIRED 0x1

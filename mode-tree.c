@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 enum mode_tree_search_dir {
 	MODE_TREE_SEARCH_FORWARD,

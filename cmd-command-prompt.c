@@ -23,7 +23,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Prompt for command in client.

@@ -1,6 +1,6 @@
 # configure.ac
 
-AC_INIT([tmux], next-3.7)
+AC_INIT([miauh], next-3.7)
 AC_PREREQ([2.60])
 
 AC_CONFIG_AUX_DIR(etc)
@@ -52,7 +52,7 @@ AC_PROG_YACC
 PKG_PROG_PKG_CONFIG
 AC_USE_SYSTEM_EXTENSIONS
 
-# Default tmux.conf goes in /etc not ${prefix}/etc.
+# Default miauh.conf goes in /etc not ${prefix}/etc.
 test "$sysconfdir" = '${prefix}/etc' && sysconfdir=/etc
 
 # Is this --enable-debug?
@@ -97,10 +97,10 @@ AC_ARG_WITH(
 	[DEFAULT_TERM=]
 )
 case "x$DEFAULT_TERM" in
-	xscreen*|xtmux*|x)
+	xscreen*|xtmux*|xmiauh*|x)
 	;;
 	*)
-		AC_MSG_ERROR("unsuitable TERM (must be screen* or tmux*)")
+		AC_MSG_ERROR("unsuitable TERM (must be screen*, tmux* or miauh*)")
 	;;
 esac
 

@@ -25,7 +25,7 @@
 #include <wchar.h>
 
 #include "compat.h"
-#include "tmux.h"
+#include "miauh.h"
 
 struct utf8_width_item {
 	wchar_t				wc;

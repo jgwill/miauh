@@ -24,7 +24,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 struct window_copy_mode_data;
 
@@ -222,7 +222,7 @@ struct window_copy_cmd_state {
  * Copy mode's visible screen (the "screen" field) is filled from one of two
  * sources: the original contents of the pane (used when we actually enter via
  * the "copy-mode" command, to copy the contents of the current pane), or else
- * a series of lines containing the output from an output-writing tmux command
+ * a series of lines containing the output from an output-writing miauh command
  * (such as any of the "show-*" or "list-*" commands).
  *
  * In either case, the full content of the copy-mode grid is pointed at by the

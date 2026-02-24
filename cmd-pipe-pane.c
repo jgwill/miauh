@@ -27,7 +27,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Open pipe to redirect pane output. If already open, close first.

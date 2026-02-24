@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * OSC 8 hyperlinks, described at:
@@ -32,9 +32,9 @@
  * Each hyperlink and ID combination is assigned a number ("inner" in this
  * file) which is stored in an extended grid cell and maps into a tree here.
  *
- * Each URI has one inner number and one external ID (which tmux uses to send
+ * Each URI has one inner number and one external ID (which miauh uses to send
  * the hyperlink to the terminal) and one internal ID (which is received from
- * the sending application inside tmux).
+ * the sending application inside miauh).
  *
  * Anonymous hyperlinks are each unique and are not reused even if they have
  * the same URI (terminals will not want to tie them together).
@@ -158,7 +158,7 @@ hyperlinks_put(struct hyperlinks *hl, const char *uri_in,
 			return (hlu->inner);
 		}
 	}
-	xasprintf(&external_id, "tmux%llX", hyperlinks_next_external_id++);
+	xasprintf(&external_id, "miauh%llX", hyperlinks_next_external_id++);
 
 	hlu = xcalloc(1, sizeof *hlu);
 	hlu->inner = hl->next_inner++;

@@ -28,7 +28,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static int			 yylex(void);
 static int			 yyparse(void);

@@ -25,7 +25,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static struct screen	*window_buffer_init(struct window_mode_entry *,
 			     struct cmd_find_state *, struct args *);

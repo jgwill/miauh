@@ -20,7 +20,7 @@
 
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 enum tty_draw_line_state {
 	TTY_DRAW_LINE_FIRST,

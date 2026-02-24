@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static void	screen_redraw_draw_borders(struct screen_redraw_ctx *);
 static void	screen_redraw_draw_panes(struct screen_redraw_ctx *);

@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /* Table mapping ACS entries to UTF-8. */
 struct tty_acs_entry {

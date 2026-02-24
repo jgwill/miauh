@@ -16,8 +16,8 @@
  * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef TMUX_H
-#define TMUX_H
+#ifndef MIAUH_H
+#define MIAUH_H
 
 #include <sys/time.h>
 #include <sys/uio.h>
@@ -33,7 +33,7 @@
 #endif
 
 #include "compat.h"
-#include "tmux-protocol.h"
+#include "miauh-protocol.h"
 #include "xmalloc.h"
 
 extern char   **environ;
@@ -80,20 +80,20 @@ struct tmuxproc;
 struct winlink;
 
 /* Default configuration files and socket paths. */
-#ifndef TMUX_CONF
-#define TMUX_CONF "/etc/tmux.conf:~/.tmux.conf"
+#ifndef MIAUH_CONF
+#define MIAUH_CONF "/etc/miauh.conf:~/.miauh.conf"
 #endif
-#ifndef TMUX_SOCK
-#define TMUX_SOCK "$TMUX_TMPDIR:" _PATH_TMP
+#ifndef MIAUH_SOCK
+#define MIAUH_SOCK "$MIAUH_TMPDIR:" _PATH_TMP
 #endif
-#ifndef TMUX_SOCK_PERM
-#define TMUX_SOCK_PERM (7 /* o+rwx */)
+#ifndef MIAUH_SOCK_PERM
+#define MIAUH_SOCK_PERM (7 /* o+rwx */)
 #endif
-#ifndef TMUX_TERM
-#define TMUX_TERM "screen"
+#ifndef MIAUH_TERM
+#define MIAUH_TERM "screen"
 #endif
-#ifndef TMUX_LOCK_CMD
-#define TMUX_LOCK_CMD "lock -np"
+#ifndef MIAUH_LOCK_CMD
+#define MIAUH_LOCK_CMD "lock -np"
 #endif
 
 /* Minimum layout cell size, NOT including border lines. */
@@ -2297,7 +2297,7 @@ struct sort_criteria {
 	enum sort_order	*order_seq; /* available sort orders */
 };
 
-/* tmux.c */
+/* miauh.c */
 extern struct options	*global_options;
 extern struct options	*global_s_options;
 extern struct options	*global_w_options;
@@ -3761,4 +3761,4 @@ struct hyperlinks	*hyperlinks_copy(struct hyperlinks *);
 void			 hyperlinks_reset(struct hyperlinks *);
 void			 hyperlinks_free(struct hyperlinks *);
 
-#endif /* TMUX_H */
+#endif /* MIAUH_H */

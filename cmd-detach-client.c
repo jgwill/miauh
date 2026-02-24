@@ -20,7 +20,7 @@
 
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Detach a client.

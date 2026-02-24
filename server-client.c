@@ -27,7 +27,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 enum mouse_where {
 	NOWHERE,
@@ -237,7 +237,7 @@ server_client_check_nested(struct client *c)
 	struct environ_entry	*envent;
 	struct window_pane	*wp;
 
-	envent = environ_find(c->environ, "TMUX");
+	envent = environ_find(c->environ, "MIAUH");
 	if (envent == NULL || *envent->value == '\0')
 		return (0);
 
@@ -2952,7 +2952,7 @@ out:
 /*
  * Update cursor position and mode settings. The scroll region and attributes
  * are cleared when idle (waiting for an event) as this is the most likely time
- * a user may interrupt tmux, for example with ~^Z in ssh(1). This is a
+ * a user may interrupt miauh, for example with ~^Z in ssh(1). This is a
  * compromise between excessive resets and likelihood of an interrupt.
  *
  * tty_region/tty_reset/tty_update_mode already take care of not resetting

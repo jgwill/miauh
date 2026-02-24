@@ -20,7 +20,7 @@
 
 #include <stdlib.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Rename a window.

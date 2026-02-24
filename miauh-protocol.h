@@ -16,8 +16,8 @@
  * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef TMUX_PROTOCOL_H
-#define TMUX_PROTOCOL_H
+#ifndef MIAUH_PROTOCOL_H
+#define MIAUH_PROTOCOL_H
 
 /* Protocol version. */
 #define PROTOCOL_VERSION 8
@@ -116,4 +116,4 @@ struct msg_write_close {
 	int	stream;
 };
 
-#endif /* TMUX_PROTOCOL_H */
+#endif /* MIAUH_PROTOCOL_H */

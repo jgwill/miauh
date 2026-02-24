@@ -32,7 +32,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Build a list of key-value pairs and use them to expand #{key} entries in a

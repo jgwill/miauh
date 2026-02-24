@@ -24,7 +24,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static FILE	*log_file;
 static int	 log_level;
@@ -60,7 +60,7 @@ log_open(const char *name)
 		return;
 	log_close();
 
-	xasprintf(&path, "tmux-%s-%ld.log", name, (long)getpid());
+	xasprintf(&path, "miauh-%s-%ld.log", name, (long)getpid());
 	log_file = fopen(path, "a");
 	free(path);
 	if (log_file == NULL)

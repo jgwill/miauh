@@ -26,7 +26,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Based on the description by Paul Williams at:

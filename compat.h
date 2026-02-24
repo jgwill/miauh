@@ -461,7 +461,7 @@ int		 utf8proc_wctomb(char *, wchar_t);
 #endif
 
 #ifdef NEED_FUZZING
-/* tmux.c */
+/* miauh.c */
 #define main __weak main
 #endif
 

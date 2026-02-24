@@ -18,7 +18,7 @@
 #include <assert.h>
 #include <fcntl.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 #define FUZZER_MAXLEN 512
 #define PANE_WIDTH 80

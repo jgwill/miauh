@@ -20,7 +20,7 @@
 
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 const char *
 attributes_tostring(int attr)

@@ -25,7 +25,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Create a new session and attach to the current terminal unless -d is given.
@@ -174,7 +174,7 @@ cmd_new_session_exec(struct cmd *self, struct cmdq_item *item)
 	 *
 	 * tcgetattr() is used rather than using tty.tio since if the client is
 	 * detached, tty_open won't be called. It must be done before opening
-	 * the terminal as that calls tcsetattr() to prepare for tmux taking
+	 * the terminal as that calls tcsetattr() to prepare for miauh taking
 	 * over.
 	 */
 	if (!detached &&
@@ -183,7 +183,7 @@ cmd_new_session_exec(struct cmd *self, struct cmdq_item *item)
 	    (~c->flags & CLIENT_CONTROL)) {
 		if (server_client_check_nested(cmdq_get_client(item))) {
 			cmdq_error(item, "sessions should be nested with care, "
-			    "unset $TMUX to force");
+			    "unset $MIAUH to force");
 			goto fail;
 		}
 		if (tcgetattr(c->fd, &tio) != 0)

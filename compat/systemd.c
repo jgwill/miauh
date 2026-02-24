@@ -28,7 +28,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 #ifndef SD_ID128_UUID_FORMAT_STR
 #define SD_ID128_UUID_FORMAT_STR \
@@ -159,7 +159,7 @@ systemd_move_to_new_cgroup(char **cause)
 		xasprintf(cause, "failed to generate uuid: %s", strerror(-r));
 		goto finish;
 	}
-	xasprintf(&name, "tmux-spawn-" SD_ID128_UUID_FORMAT_STR ".scope",
+	xasprintf(&name, "miauh-spawn-" SD_ID128_UUID_FORMAT_STR ".scope",
 	    SD_ID128_FORMAT_VAL(uuid));
 	r = sd_bus_message_append(m, "s", name);
 	free(name);
@@ -187,7 +187,7 @@ systemd_move_to_new_cgroup(char **cause)
 
 	pid = getpid();
 	parent_pid = getppid();
-	xasprintf(&desc, "tmux child pane %ld launched by process %ld",
+	xasprintf(&desc, "miauh child pane %ld launched by process %ld",
 	    (long)pid, (long)parent_pid);
 	r = sd_bus_message_append(m, "(sv)", "Description", "s", desc);
 	free(desc);
@@ -210,11 +210,11 @@ systemd_move_to_new_cgroup(char **cause)
 
 	/*
 	 * Inherit the slice from the parent process, or default to
-	 * "app-tmux.slice" if that fails.
+	 * "app-miauh.slice" if that fails.
 	 */
 	r = sd_pid_get_user_slice(parent_pid, &slice);
 	if (r < 0) {
-		slice = xstrdup("app-tmux.slice");
+		slice = xstrdup("app-miauh.slice");
 	}
 	r = sd_bus_message_append(m, "(sv)", "Slice", "s", slice);
 	free(slice);

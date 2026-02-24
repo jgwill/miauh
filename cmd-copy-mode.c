@@ -18,7 +18,7 @@
 
 #include <sys/types.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Enter copy or clock mode.

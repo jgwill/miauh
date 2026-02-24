@@ -23,7 +23,7 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 static key_code	key_string_search_table(const char *);
 static key_code	key_string_get_modifiers(const char **);

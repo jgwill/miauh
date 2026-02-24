@@ -23,7 +23,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
  * Environment - manipulate a set of environment variables.
@@ -278,7 +278,7 @@ environ_for_session(struct session *s, int no_TERM)
 		idx = s->id;
 	else
 		idx = -1;
-	environ_set(env, "TMUX", 0, "%s,%ld,%d", socket_path, (long)getpid(),
+	environ_set(env, "MIAUH", 0, "%s,%ld,%d", socket_path, (long)getpid(),
 	    idx);
 
 	return (env);

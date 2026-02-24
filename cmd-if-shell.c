@@ -24,10 +24,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tmux.h"
+#include "miauh.h"
 
 /*
- * Executes a tmux command if a shell command returns true or false.
+ * Executes a miauh command if a shell command returns true or false.
  */
 
 static enum args_parse_type	cmd_if_shell_args_parse(struct args *, u_int,
